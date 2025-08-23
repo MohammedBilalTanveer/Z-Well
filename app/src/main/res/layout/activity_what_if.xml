@@ -1,0 +1,21 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:padding="16dp"
+    android:background="@drawable/bg_app"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:text="🌀 What-If Scenario Simulator" android:textStyle="bold" android:textSize="20sp"
+        android:textColor="@android:color/white" android:layout_marginBottom="12dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <EditText android:id="@+id/etWhatIf" android:hint="Type a worry…"
+        android:background="@drawable/rounded_edittext"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <Button android:id="@+id/btnGenerate" android:text="Generate Alternatives"
+        android:layout_marginTop="12dp" android:backgroundTint="@color/teal_700"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <ScrollView android:layout_marginTop="12dp"
+        android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+        <TextView android:id="@+id/tvResult" android:textSize="16sp" android:lineSpacingExtra="4dp"
+            android:textColor="@android:color/white" android:padding="8dp"
+            android:background="@drawable/rounded_container"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </ScrollView>
+</LinearLayout>

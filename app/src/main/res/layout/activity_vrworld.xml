@@ -1,0 +1,25 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@android:color/black">
+
+    <com.example.mindfulapp.ui.CalmWorldView android:id="@+id/worldView" android:layout_width="match_parent" android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:orientation="vertical" android:padding="16dp"
+        android:background="#66000000"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent" android:layout_height="wrap_content">
+
+        <EditText android:id="@+id/etMoodWorld" android:hint="Enter mood…"
+            android:background="@drawable/rounded_edittext"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnGenerateWorld" android:text="Generate World"
+            android:layout_marginTop="8dp" android:backgroundTint="@color/teal_700"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <Button android:id="@+id/btnBreathe" android:text="Start Breathing → Brighten"
+            android:layout_marginTop="8dp" android:backgroundTint="@color/purple_500"
+            android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        <TextView android:id="@+id/tvAffirm" android:textColor="@android:color/white"
+            android:padding="8dp" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    </LinearLayout>
+</RelativeLayout>

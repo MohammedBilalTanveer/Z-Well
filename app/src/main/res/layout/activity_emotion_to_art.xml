@@ -1,0 +1,17 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:padding="16dp"
+    android:background="@drawable/bg_app"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <TextView android:text="🎨 Emotion → Art (SVG)" android:textStyle="bold" android:textSize="20sp"
+        android:textColor="@android:color/white" android:layout_marginBottom="12dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <EditText android:id="@+id/etEmotion" android:hint="Describe feelings (words/emojis)…"
+        android:background="@drawable/rounded_edittext"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <Button android:id="@+id/btnRender" android:text="Generate Art"
+        android:layout_marginTop="12dp" android:backgroundTint="@color/purple_500"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+    <WebView android:id="@+id/webSvg"
+        android:layout_marginTop="12dp" android:layout_width="match_parent"
+        android:layout_height="0dp" android:layout_weight="1"/>
+</LinearLayout>

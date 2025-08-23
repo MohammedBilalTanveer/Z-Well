@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/bg_app" android:padding="24dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView android:text="Account Settings" android:textStyle="bold" android:textSize="22sp"
+        android:textColor="@android:color/white" android:layout_marginBottom="12dp"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    <EditText android:id="@+id/etChangeUsername" android:hint="Change Username"
+        android:background="@drawable/rounded_edittext" android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText android:id="@+id/etChangePassword" android:hint="Change Password"
+        android:inputType="textPassword" android:layout_marginTop="12dp"
+        android:background="@drawable/rounded_edittext" android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button android:id="@+id/btnUpdate" android:text="Update"
+        android:layout_marginTop="16dp" android:backgroundTint="@color/teal_700"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+
+    <Button android:id="@+id/btnSignout" android:text="Sign Out"
+        android:layout_marginTop="8dp" android:backgroundTint="@color/red_500"
+        android:layout_width="match_parent" android:layout_height="wrap_content"/>
+</LinearLayout>
