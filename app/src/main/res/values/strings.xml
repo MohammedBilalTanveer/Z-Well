@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Z Well App</string>
+    <string name="app_name">Z Well</string>
     <string name="menu_account">Account</string>
     <string name="menu_sign_out">Sign out</string>
     <string name="menu_what_if">What-If</string>
@@ -9,4 +9,6 @@
     <string name="menu_art">Emotion→Art</string>
     <string name="thinking_compassionate_alternatives">Thinking compassionate alternatives…</string>
     <string name="generating_alternatives">Generating alternatives…</string>
+    <string name="settings">Settings</string>
+    <string name="chatbot">Chatbot</string>
 </resources>

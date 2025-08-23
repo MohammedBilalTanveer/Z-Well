@@ -2,60 +2,53 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:fitsSystemWindows="true"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
 
+    <!-- Background Image -->
     <ImageView
-        android:src="@drawable/bg_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:contentDescription="@string/app_name"
-        android:layout_width="match_parent" android:layout_height="match_parent"/>
+        android:src="@drawable/bg_home"
+        android:contentDescription="@string/app_name"/>
 
+    <!-- Top AppBar with title centered, menu left, settings right -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
         android:backgroundTint="@android:color/transparent"
-        app:titleCentered="true"
         app:title="@string/app_name"
-        app:menu="@menu/menu_home">
+        app:titleCentered="true"
+        app:navigationIcon="@drawable/ic_menu"
+        app:menu="@menu/menu_home"
+    />
 
-        <!-- left account icon as nav button -->
-    </com.google.android.material.appbar.MaterialToolbar>
-
-    <!-- Fake left icon using container under toolbar -->
-    <LinearLayout
-        android:id="@+id/accountBtn"
-        android:layout_width="48dp" android:layout_height="48dp"
-        android:layout_marginStart="12dp" android:layout_marginTop="12dp"
-        android:background="@drawable/rounded_container"
-        android:gravity="center"
-        app:layout_anchor="@id/topAppBar"
-        app:layout_anchorGravity="start|top">
-        <ImageView
-            android:src="@android:drawable/ic_menu_manage"
-            android:layout_width="24dp" android:layout_height="24dp"/>
-    </LinearLayout>
-
+    <!-- Scrollable content -->
     <ScrollView
-        android:layout_marginTop="72dp"
-        android:layout_width="match_parent" android:layout_height="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:padding="16dp">
+
         <LinearLayout
-            android:orientation="vertical" android:padding="16dp"
-            android:layout_width="match_parent" android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:spacing="8dp">
 
-            <Button android:id="@+id/cardEmotion" android:text="🎨 Emotion → Art" style="@style/HomeCard"/>
-            <Button android:id="@+id/cardWhatIf"  android:text="🌀 What-If Simulator" style="@style/HomeCard"/>
-            <Button android:id="@+id/cardStory"   android:text="📖 Peer Story" style="@style/HomeCard"/>
-            <Button android:id="@+id/cardMusic"   android:text="🎵 Mood Music" style="@style/HomeCard"/>
-            <Button android:id="@+id/cardVR"      android:text="🌍 VR World" style="@style/HomeCard"/>
-
+            <!-- Feature buttons -->
             <Button
                 android:id="@+id/btnUsageAccess"
                 android:text="Enable Mindful Alerts (Usage Access)"
                 android:layout_marginTop="12dp"
                 android:backgroundTint="@color/purple_500"
                 android:textColor="@android:color/white"
-                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
             <Button
                 android:id="@+id/btnMindfulCoach"
@@ -63,19 +56,73 @@
                 android:layout_marginTop="8dp"
                 android:backgroundTint="@color/teal_700"
                 android:textColor="@android:color/white"
-                android:layout_width="match_parent" android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/cardEmotion"
+                android:text="🎨 Emotion → Art"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@android:color/white"
+                android:textColor="@android:color/black"
+                android:padding="16dp"/>
+
+            <Button
+                android:id="@+id/cardWhatIf"
+                android:text="🌀 What-If Simulator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@android:color/white"
+                android:textColor="@android:color/black"
+                android:padding="16dp"/>
+
+            <Button
+                android:id="@+id/cardStory"
+                android:text="📖 Peer Story"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@android:color/white"
+                android:textColor="@android:color/black"
+                android:padding="16dp"/>
+
+            <Button
+                android:id="@+id/cardMusic"
+                android:text="🎵 Mood Music"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@android:color/white"
+                android:textColor="@android:color/black"
+                android:padding="16dp"/>
+
+            <Button
+                android:id="@+id/cardVR"
+                android:text="🌍 VR World"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="@android:color/white"
+                android:textColor="@android:color/black"
+                android:padding="16dp"/>
 
         </LinearLayout>
     </ScrollView>
 
+    <!-- Chatbot FAB bottom-right -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabChat"
-        android:contentDescription="Chatbot"
-        app:srcCompat="@android:drawable/ic_btn_speak_now"
-        app:backgroundTint="@color/teal_700"
-        app:tint="@android:color/white"
-        app:layout_anchorGravity="bottom|end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:layout_width="wrap_content" android:layout_height="wrap_content"
-        app:layout_anchor="@id/topAppBar"/>
+        android:contentDescription="@string/chatbot"
+        app:srcCompat="@android:drawable/ic_dialog_email"
+        app:tint="@android:color/white"
+        app:backgroundTint="@color/teal_700"
+        app:layout_anchor="@id/topAppBar"
+        app:layout_anchorGravity="bottom|end"/>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

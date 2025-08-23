@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,27 +21,37 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         MaterialToolbar bar = findViewById(R.id.topAppBar);
+
+        // Left navigation menu click
+        bar.setNavigationOnClickListener(v -> {
+            // Here you can open a drawer or menu if needed
+            // For now, just simple toast
+            // Toast.makeText(this, "Menu clicked", Toast.LENGTH_SHORT).show();
+        });
+
+        // Right-top menu items
         bar.setOnMenuItemClickListener(this::onMenuClick);
 
-        LinearLayout accountBtn = findViewById(R.id.accountBtn);
-        accountBtn.setOnClickListener(v -> startActivity(new Intent(this, AccountActivity.class)));
-
+        // Feature buttons
         findViewById(R.id.cardEmotion).setOnClickListener(v -> startActivity(new Intent(this, EmotionToArtActivity.class)));
         findViewById(R.id.cardWhatIf).setOnClickListener(v -> startActivity(new Intent(this, WhatIfActivity.class)));
         findViewById(R.id.cardStory).setOnClickListener(v -> startActivity(new Intent(this, StoryActivity.class)));
         findViewById(R.id.cardMusic).setOnClickListener(v -> startActivity(new Intent(this, MusicActivity.class)));
         findViewById(R.id.cardVR).setOnClickListener(v -> startActivity(new Intent(this, VRWorldActivity.class)));
 
+        // Mindful coach button
         Button mindfulCoach = findViewById(R.id.btnMindfulCoach);
         mindfulCoach.setOnClickListener(v -> startActivity(new Intent(this, MindfulDialogActivity.class)));
 
+        // Usage access button
         Button usageBtn = findViewById(R.id.btnUsageAccess);
         usageBtn.setOnClickListener(v -> startActivity(new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS)));
 
+        // Chatbot FAB
         FloatingActionButton fab = findViewById(R.id.fabChat);
         fab.setOnClickListener(v -> startActivity(new Intent(this, ChatbotActivity.class)));
 
-        // If usage access already allowed, start service
+        // If usage access allowed, start service
         if (hasUsageAccess()) startService(new Intent(this, UsageStatsService.class));
     }
 
@@ -53,9 +62,11 @@ public class HomeActivity extends AppCompatActivity {
         else if (i == R.id.action_music) startActivity(new Intent(this, MusicActivity.class));
         else if (i == R.id.action_vr) startActivity(new Intent(this, VRWorldActivity.class));
         else if (i == R.id.action_art) startActivity(new Intent(this, EmotionToArtActivity.class));
+        else if (i == R.id.action_settings) startActivity(new Intent(this, AccountActivity.class));
         else if (i == R.id.action_signout) {
             getSharedPreferences("auth", MODE_PRIVATE).edit().putBoolean("logged", false).apply();
-            startActivity(new Intent(this, LoginActivity.class)); finish();
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
         }
         return true;
     }
