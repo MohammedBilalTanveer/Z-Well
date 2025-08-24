@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <!-- feature 5 (mindful alerts) is built-in, not listed -->
-    <item android:id="@+id/action_what_if" android:title="@string/menu_what_if"/>
-    <item android:id="@+id/action_story"  android:title="@string/menu_story"/>
-    <item android:id="@+id/action_music"  android:title="@string/menu_music"/>
-    <item android:id="@+id/action_vr"     android:title="@string/menu_vr"/>
-    <item android:id="@+id/action_art"    android:title="@string/menu_art"/>
-    <item android:id="@+id/action_signout" android:title="@string/menu_sign_out"/>
+    <item android:id="@+id/action_art"     android:title="Emotion → Art"/>
+    <item android:id="@+id/action_what_if" android:title="What-If"/>
+    <item android:id="@+id/action_story"   android:title="Peer Story"/>
+    <item android:id="@+id/action_music"   android:title="Mood Music"/>
+    <item android:id="@+id/action_vr"      android:title="VR World"/>
+    <item android:id="@+id/action_settings" android:title="Account/Settings"/>
+    <item android:id="@+id/action_signout"  android:title="Sign out"/>
 </menu>

@@ -1,0 +1,37 @@
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/action_art"
+        android:title="Emotion Art"
+        android:icon="@drawable/ic_brush"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_what_if"
+        android:title="What-If"
+        android:icon="@drawable/ic_question"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_story"
+        android:title="Stories"
+        android:icon="@drawable/ic_book"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_music"
+        android:title="Music"
+        android:icon="@drawable/ic_music"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_vr"
+        android:title="VR"
+        android:icon="@drawable/ic_vr"
+        app:showAsAction="ifRoom" />
+
+    <item android:id="@+id/action_settings"
+        android:title="Settings"
+        android:icon="@drawable/ic_settings"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_signout"
+        android:title="Sign Out"
+        app:showAsAction="never" />
+</menu>

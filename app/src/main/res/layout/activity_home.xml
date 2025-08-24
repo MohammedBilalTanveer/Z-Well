@@ -3,126 +3,296 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true">
+    android:layout_height="match_parent">
 
-    <!-- Background Image -->
+    <!-- Optional background (replace with your image if you like) -->
     <ImageView
+        android:id="@+id/bg"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
         android:src="@drawable/bg_home"
-        android:contentDescription="@string/app_name"/>
+        android:contentDescription="@null"/>
 
-    <!-- Top AppBar with title centered, menu left, settings right -->
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/topAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:backgroundTint="@android:color/transparent"
-        app:title="@string/app_name"
-        app:titleCentered="true"
-        app:navigationIcon="@drawable/ic_menu"
-        app:menu="@menu/menu_home"
-    />
+    <!-- AppBar with centered title, left nav icon, right settings -->
+    <include
+        android:id="@+id/includeTopBar"
+        layout="@layout/topnavbar"/>
 
-    <!-- Scrollable content -->
+    <!-- Scrollable card stack -->
     <ScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="?attr/actionBarSize"
-        android:padding="16dp">
+        android:padding="16dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fadeScrollbars="false">
 
         <LinearLayout
+            android:id="@+id/cardContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:spacing="8dp">
+            android:animateLayoutChanges="true">
 
-            <!-- Feature buttons -->
-            <Button
-                android:id="@+id/btnUsageAccess"
-                android:text="Enable Mindful Alerts (Usage Access)"
-                android:layout_marginTop="12dp"
-                android:backgroundTint="@color/purple_500"
-                android:textColor="@android:color/white"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <Button
-                android:id="@+id/btnMindfulCoach"
-                android:text="🧘 Mindful Coach"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="@color/teal_700"
-                android:textColor="@android:color/white"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <Button
+            <!-- 1) Emotion-to-Art -->
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardEmotion"
-                android:text="🎨 Emotion → Art"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="@android:color/white"
-                android:textColor="@android:color/black"
-                android:padding="16dp"/>
+                android:layout_marginTop="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp">
 
-            <Button
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="18dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card_orange">
+
+                    <TextView
+                        android:id="@+id/t1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Emotion-to-Art Translator  🎨"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="• Youths describe feelings (text/emoji/voice); AI creates personalized art, graffiti-style images, or comics that reflect their emotions.\n• Helps externalize emotions visually (great for non-verbal expression)."
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="2dp"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 2) What-If -->
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardWhatIf"
-                android:text="🌀 What-If Simulator"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="@android:color/white"
-                android:textColor="@android:color/black"
-                android:padding="16dp"/>
+                android:layout_marginTop="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp"
+                >
 
-            <Button
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="18dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card_blue">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="“What-If” Scenario Simulator  🌀"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="• Type worries (“What if I fail?” / “What if my friends don’t like me?”).\n• AI suggests safe, optimistic but realistic alternate scenarios, building resilience and reducing catastrophic thinking."
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="2dp"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 3) Peer-Support Story -->
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardStory"
-                android:text="📖 Peer Story"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="@android:color/white"
-                android:textColor="@android:color/black"
-                android:padding="16dp"/>
+                android:layout_marginTop="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp"
+               >
 
-            <Button
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="18dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card_green">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Peer-Support Story Generator  📖"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="• Short, relatable stories of youths overcoming similar struggles (anxiety, exam pressure, bullying).\n• Personalized narratives that mirror their situation—helps them feel less alone."
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="2dp"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 4) Generative Music -->
+            <com.google.android.material.card.MaterialCardView
                 android:id="@+id/cardMusic"
-                android:text="🎵 Mood Music"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="@android:color/white"
-                android:textColor="@android:color/black"
-                android:padding="16dp"/>
+                android:layout_marginTop="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp"
+                >
 
-            <Button
-                android:id="@+id/cardVR"
-                android:text="🌍 VR World"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="18dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card_purple">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Generative Music for Mood Regulation  🎵"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="• AI creates real-time background music from emotional cues (text, speech tone, or wearables).\n• Produces calming, focusing, or energizing soundscapes on demand."
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="2dp"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 5) Alerts + Login CTA -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardAlert"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="@android:color/white"
-                android:textColor="@android:color/black"
-                android:padding="16dp"/>
+                android:layout_marginTop="12dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="18dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card_magenta">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Mindful Alerts  🔔"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="• Warn when social media usage is high.\n• Suggest 5-minute study breaks and breathing techniques.\n• Detect studying patterns (e.g., long time viewing photos/PDFs) to offer helpful nudges."
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="2dp"
+                        android:textColor="@android:color/white"/>
+
+                    <Button
+                        android:id="@+id/btnLogin"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="Log in"
+                        android:textAllCaps="false"
+                        android:background="@drawable/rounded_dark_button"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- 6) Emotion-to-World (VR) + Sign up CTA -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardVR"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="24dp"
+                android:foreground="?attr/selectableItemBackground"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="6dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="18dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_card_cyan">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Emotion-to-World (VR)  🌍"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="• Pick a mood; AI builds a matching VR world (anxiety = foggy forest, calm = sunny meadow).\n• With breath/movement practice, the world brightens to reflect emotional regulation."
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="2dp"
+                        android:textColor="@android:color/white"/>
+
+                    <Button
+                        android:id="@+id/btnSignup"
+                        style="@style/Widget.MaterialComponents.Button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="Sign up"
+                        android:textAllCaps="false"
+                        android:background="@drawable/rounded_dark_button"
+                        android:textColor="@android:color/white"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
         </LinearLayout>
     </ScrollView>
 
-    <!-- Chatbot FAB bottom-right -->
+    <!-- Chatbot FAB -->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabChat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:contentDescription="@string/chatbot"
-        app:srcCompat="@android:drawable/ic_dialog_email"
+        android:contentDescription="@string/app_name"
+        app:srcCompat="@android:drawable/ic_btn_speak_now"
         app:tint="@android:color/white"
         app:backgroundTint="@color/teal_700"
-        app:layout_anchor="@id/topAppBar"
-        app:layout_anchorGravity="bottom|end"/>
-
+        app:layout_anchorGravity="bottom|end"
+        android:layout_gravity="bottom|end"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
