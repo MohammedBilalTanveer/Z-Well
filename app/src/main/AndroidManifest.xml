@@ -5,6 +5,7 @@
     <!-- Permissions -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.PACKAGE_USAGE_STATS"
         tools:ignore="ProtectedPermissions" />
 
@@ -19,6 +20,7 @@
         <!-- Launcher Activity -->
         <activity
             android:name=".MainActivity"
+            android:windowSoftInputMode="adjustResize|stateHidden"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,7 +53,7 @@
             android:name=".UsageStatsService"
             android:enabled="true"
             android:exported="false"
-            android:permission="android.permission.PACKAGE_USAGE_STATS" />
+            android:permission="android.permission.PACKAGE_USAGE_STATS"/>
     </application>
 
 </manifest>

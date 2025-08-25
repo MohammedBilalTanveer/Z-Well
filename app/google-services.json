@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "502109641873",
+    "project_id": "z-well-app",
+    "storage_bucket": "z-well-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502109641873:android:760643f1499bd2272ff330",
+        "android_client_info": {
+          "package_name": "com.example.zwell"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOHN8_-ZOioigfULvv3xI8bAF8bUUt0gc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
